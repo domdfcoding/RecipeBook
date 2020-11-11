@@ -39,7 +39,7 @@ for recipe in sys.argv[1:]:
 	for filename in output_dir.glob(f"{recipe}-*.tar.bz2"):
 		print(filename)
 		print("Deploying to Anaconda.org...")
-		ret = os.system(f"anaconda - t $ANACONDA_TOKEN upload {filename}")
+		ret = os.system(f"anaconda -t $ANACONDA_TOKEN upload {filename}")
 		if ret == 0:
 			"Successfully deployed to Anaconda.org."
 			break
