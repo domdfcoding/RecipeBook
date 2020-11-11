@@ -1,10 +1,12 @@
 #!/usr/bin/env python
 
 # Don't run this outside of docker
+
+# stdlib
 import getpass
 import os
-import sys
 import pathlib
+import sys
 
 if not getpass.getuser() == "test_user":
 	raise NameError("Refusing to run when outside of a Docker container")
