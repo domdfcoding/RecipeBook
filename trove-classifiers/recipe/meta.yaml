@@ -1,0 +1,39 @@
+{% set name = "trove-classifiers" %}
+{% set version = "2020.10.21" %}
+{% set bundle = "tar.gz" %}
+{% set hash = "ad33e51c5aaf5fdd25bf0571f12cb67b885bf73db25a0ca629b66acbd58b654d" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  fn: {{ name }}-{{ version }}.{{ bundle }}
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ bundle }}
+  sha256: {{ hash }}
+
+build:
+  noarch: python
+  number: 0
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
+
+requirements:
+  build:
+    - python
+    - pip
+
+  run:
+    - python
+
+test:
+  imports:
+    - trove_classifiers
+
+about:
+  home: https://github.com/pypa/trove-classifiers
+  license_file: LICENSE
+  license: Apache-2.0
+  license_family: Apache
+  summary: Canonical source for classifiers on PyPI (pypi.org).
+  dev_url: https://github.com/pypa/trove-classifiers
+#  doc_url:
