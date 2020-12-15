@@ -1,0 +1,38 @@
+{% set name = "colorful" %}
+{% set version = "0.5.4" %}
+{% set bundle = "tar.gz" %}
+{% set hash = "86848ad4e2eda60cd2519d8698945d22f6f6551e23e95f3f14dfbb60997807ea" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  fn: {{ name }}-{{ version }}.{{ bundle }}
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ bundle }}
+  sha256: {{ hash }}
+
+build:
+  noarch: python
+  number: 0
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
+
+requirements:
+  build:
+    - python
+    - pip
+
+  run:
+    - colorama
+
+test:
+  imports:
+    - colorful
+
+about:
+  home: https://github.com/timofurrer/colorful
+  license_file: LICENSE
+  license: MIT
+  summary: Terminal string styling done right, in Python
+  dev_url: https://github.com/timofurrer/colorful
+#  doc_url:
