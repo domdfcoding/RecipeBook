@@ -15,13 +15,12 @@ source:
 build:
   noarch: python
   number: 0
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  script: {{ PYTHON }} -m pip install https://pypi.debian.net/prettyprinter/{{ name }}-{{ version }}-py2.py3-none-any.whl --no-deps -vv
 
 requirements:
   build:
     - python
     - pip
-    - pytest-runner
 
   run:
     - colorful>=0.4.0
