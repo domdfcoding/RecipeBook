@@ -1,0 +1,39 @@
+{% set name = "css-parser" %}
+{% set version = "1.0.6" %}
+{% set bundle = "tar.gz" %}
+{% set hash = "4ed448a8a5622edb1d30d616bbc4bd3d30f11be922343d7a92d7e418e324af2e" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  fn: {{ name }}-{{ version }}.{{ bundle }}
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ bundle }}
+  sha256: {{ hash }}
+
+build:
+  noarch: python
+  number: 0
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
+
+requirements:
+  build:
+    - python
+    - pip
+
+  run:
+    - python
+
+test:
+  imports:
+    - css_parser
+
+about:
+  home: https://github.com/ebook-utils/css-parser
+  license_file: LICENSE
+  license: LGPL3
+  license_family: GPL
+  summary: Canonical source for classifiers on PyPI (pypi.org).
+  dev_url: https://github.com/pypa/css-parser
+#  doc_url:
