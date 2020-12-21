@@ -14,4 +14,3 @@ To build a package::
 	cd RecipeBook
 	export ANACONDA_TOKEN=<token>
 	python docker_build.py <package>
-
