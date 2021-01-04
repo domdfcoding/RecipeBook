@@ -7,6 +7,7 @@ import getpass
 import os
 import pathlib
 import sys
+from itertools import chain
 
 if not getpass.getuser() == "test_user":
 	raise NameError("Refusing to run when outside of a Docker container")
@@ -17,6 +18,7 @@ if not ANACONDA_TOKEN:
 	raise ValueError("ANACONDA_TOKEN unset.")
 
 output_dir = pathlib.Path("/home/test_user/conda-bld/noarch")
+opt_output_dir = pathlib.Path("/opt/conda/conda-bld/noarch")
 
 # Not writeable in Anaconda's own docker image 🙄
 os.system("sudo chown -R test_user: /opt/conda/pkgs")
@@ -38,7 +40,7 @@ for recipe in sys.argv[1:]:
 
 	os.system(command)
 
-	for filename in output_dir.glob(f"{recipe}-*.tar.bz2"):
+	for filename in chain.from_iterable(d.glob(f"{recipe}-*.tar.bz2") for d in (output_dir, opt_output_dir)):
 		print(filename)
 		print("Deploying to Anaconda.org...")
 		ret = os.system(f"anaconda -t $ANACONDA_TOKEN upload {filename}")
