@@ -1,0 +1,35 @@
+{% set name = "mistletoe" %}
+{% set version = "0.7.2" %}
+{% set bundle = "tar.gz" %}
+{% set hash = "3e2d31b2fa6231ea2ee46981274ebac8d5e5736e3aad2d1cd449e2c053b7023b" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  fn: {{ name }}-{{ version }}.{{ bundle }}
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ bundle }}
+  sha256: {{ hash }}
+
+build:
+  noarch: python
+  number: 0
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
+
+requirements:
+  build:
+    - python
+    - pip
+
+test:
+  imports:
+    - mistletoe
+
+about:
+  home: https://github.com/miyuchina/mistletoe
+  license_file: LICENSE
+  license: MIT
+  summary: A fast, extensible Markdown parser in pure Python.
+  dev_url: https://github.com/miyuchina/mistletoe
+#  doc_url:
