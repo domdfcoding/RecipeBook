@@ -1,0 +1,37 @@
+{% set name = "wheel-filename" %}
+{% set version = "1.2.0" %}
+{% set bundle = "tar.gz" %}
+{% set hash = "199e1354c1de0dc30651b0c672bfdc39954817296f70a7d98b827ac7df323874" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  fn: {{ name }}-{{ version }}.{{ bundle }}
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ bundle }}
+  sha256: {{ hash }}
+
+build:
+  noarch: python
+  number: 0
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
+
+requirements:
+  build:
+    - python
+    - pip
+
+  run:
+    - python
+
+test:
+  imports:
+    - trove_classifiers
+
+about:
+  home: https://github.com/jwodder/wheel-filename
+  license_file: LICENSE
+  license: MIT
+  summary: Parse wheel filenames.
+  dev_url: https://github.com/jwodder/wheel-filename
