@@ -27,7 +27,7 @@ requirements:
 
 test:
   imports:
-    - trove_classifiers
+    - wheel_filename
 
 about:
   home: https://github.com/jwodder/wheel-filename
