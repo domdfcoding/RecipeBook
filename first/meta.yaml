@@ -1,0 +1,38 @@
+{% set name = "first" %}
+{% set version = "2.0.2 " %}
+{% set bundle = "tar.gz" %}
+{% set hash = "ff285b08c55f8c97ce4ea7012743af2495c9f1291785f163722bd36f6af6d3bf" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  fn: {{ name }}-{{ version }}.{{ bundle }}
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ bundle }}
+  sha256: {{ hash }}
+
+build:
+  noarch: python
+  number: 0
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
+
+requirements:
+  build:
+    - python
+    - pip
+
+  run:
+    - python
+
+test:
+  imports:
+    - first
+
+about:
+  home: https://github.com/hynek/first
+  license_file: LICENSE
+  license: MIT
+  summary: "The function you always missed in Python: return the first true value of an iterable."
+  dev_url: https://github.com/hynek/first
+#  doc_url:
