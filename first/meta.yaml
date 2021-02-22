@@ -1,5 +1,5 @@
 {% set name = "first" %}
-{% set version = "2.0.2 " %}
+{% set version = "2.0.2" %}
 {% set bundle = "tar.gz" %}
 {% set hash = "ff285b08c55f8c97ce4ea7012743af2495c9f1291785f163722bd36f6af6d3bf" %}
 
