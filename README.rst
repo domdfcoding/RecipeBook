@@ -7,7 +7,7 @@ Conda recipes.
 
 To build a package::
 
-	docker run -ti continuumio/conda-ci-linux-64-python3.8
+	docker run --rm -ti continuumio/conda-ci-linux-64-python3.8
 	sudo chown -R test_user: /opt/conda
 	cd ~
 	git clone https://github.com/domdfcoding/RecipeBook
