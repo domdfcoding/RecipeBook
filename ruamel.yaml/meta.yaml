@@ -1,0 +1,37 @@
+{% set name = "ruamel.yaml" %}
+{% set version = "0.17.4" %}
+{% set bundle = "tar.gz" %}
+{% set hash = "44bc6b54fddd45e4bc0619059196679f9e8b79c027f4131bb072e6a22f4d5e28" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  fn: {{ name }}-{{ version }}.{{ bundle }}
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ bundle }}
+  sha256: {{ hash }}
+
+build:
+  noarch: python
+  number: 0
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
+
+requirements:
+  build:
+    - python
+    - pip
+
+  run:
+    - python
+
+test:
+  imports:
+    - ruamel.yaml
+
+about:
+  home: https://sourceforge.net/p/ruamel-yaml
+  license_file: LICENSE
+  license: MIT
+  summary: ruamel.yaml is a YAML 1.2 parser/emitter for Python.
+  dev_url: https://sourceforge.net/p/ruamel-yaml
