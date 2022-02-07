@@ -1,7 +1,7 @@
 {% set name = "mistletoe" %}
-{% set version = "0.7.2" %}
+{% set version = "0.8.1" %}
 {% set bundle = "tar.gz" %}
-{% set hash = "24d0f18cc5f0381c2cfb8a24ef3de83eb9f7929cb7d0e71ecb164b671d86e6a3" %}
+{% set hash = "468c6a42fd98b85e05b318033f63d76e02712e1ea1328a7ebcba7e47fb6f1e41" %}
 
 package:
   name: {{ name|lower }}

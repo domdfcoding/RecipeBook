@@ -1,7 +1,7 @@
 {% set name = "css-parser" %}
-{% set version = "1.0.6" %}
+{% set version = "1.0.7" %}
 {% set bundle = "tar.gz" %}
-{% set hash = "4ed448a8a5622edb1d30d616bbc4bd3d30f11be922343d7a92d7e418e324af2e" %}
+{% set hash = "25e096c63262dd249010ce36dab4cacd9595783ee09b5ed699ef12ab864ebbd1" %}
 
 package:
   name: {{ name|lower }}
@@ -34,6 +34,6 @@ about:
   license_file: LICENSE
   license: LGPL3
   license_family: GPL
-  summary: Canonical source for classifiers on PyPI (pypi.org).
-  dev_url: https://github.com/pypa/css-parser
+  summary: A CSS Cascading Style Sheets library for Python
+  dev_url: https://github.com/ebook-utils/css-parser
 #  doc_url:
