@@ -26,7 +26,7 @@ os.system("sudo chown -R test_user: /opt/conda/pkgs")
 root_dir = os.getcwd()
 
 for recipe in sys.argv[1:]:
-	recipe = recipe.strip("/")
+	recipe = recipe.strip('/')
 	os.chdir(recipe)
 
 	CHANNELS = []
