@@ -1,7 +1,7 @@
 {% set name = "trove-classifiers" %}
-{% set version = "2020.10.21" %}
+{% set version = "2022.10.19" %}
 {% set bundle = "tar.gz" %}
-{% set hash = "ad33e51c5aaf5fdd25bf0571f12cb67b885bf73db25a0ca629b66acbd58b654d" %}
+{% set hash = "3a58b43b5149a0e125037e7e875d35e4471435a6a5a5b7e6b68cbee7afd23739" %}
 
 package:
   name: {{ name|lower }}

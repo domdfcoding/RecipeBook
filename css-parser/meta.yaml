@@ -1,7 +1,7 @@
 {% set name = "css-parser" %}
-{% set version = "1.0.7" %}
+{% set version = "1.0.8" %}
 {% set bundle = "tar.gz" %}
-{% set hash = "25e096c63262dd249010ce36dab4cacd9595783ee09b5ed699ef12ab864ebbd1" %}
+{% set hash = "994d6a0115a8f4e2b6648e2b12733036d05fa164278aa234630c9f03e52c8c80" %}
 
 package:
   name: {{ name|lower }}
