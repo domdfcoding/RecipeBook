@@ -1,0 +1,40 @@
+{% set name = "standard-imghdr" %}
+{% set version = "3.12.2" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/standard_imghdr-{{ version }}.tar.gz
+  sha256: 09079d132e50588a10a9943a997e3d92d202bddd51e4623377678dab83e7a408
+
+build:
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 0
+
+requirements:
+  host:
+    - python
+    - setuptools >=61.0
+    - pip
+  run:
+    - python
+
+test:
+  imports:
+    - imghdr
+  commands:
+    - pip check
+  requires:
+    - pip
+
+about:
+  summary: Standard library imghdr redistribution. "dead battery".
+  license: PSF-2.0
+  license_file: LICENSE
+
+extra:
+  recipe-maintainers:
+    - domdfcoding
