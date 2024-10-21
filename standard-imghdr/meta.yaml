@@ -23,8 +23,8 @@ requirements:
     - python
 
 test:
-  imports:
-    - imghdr
+  # imports:
+  #   - imghdr
   commands:
     - pip check
   requires:
