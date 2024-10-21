@@ -1,24 +1,21 @@
 {% set name = "css-parser" %}
-{% set version = "1.0.8" %}
-{% set bundle = "tar.gz" %}
-{% set hash = "994d6a0115a8f4e2b6648e2b12733036d05fa164278aa234630c9f03e52c8c80" %}
+{% set version = "1.0.10" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.{{ bundle }}
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ bundle }}
-  sha256: {{ hash }}
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/css-parser-{{ version }}.tar.gz
+  sha256: bf1e972ad33344e93206964fb4cd908d9ddef9fcd0c01fa93e0d734675394363
 
 build:
   noarch: python
   number: 0
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
-  build:
+  host:
     - python
     - pip
 
@@ -28,6 +25,10 @@ requirements:
 test:
   imports:
     - css_parser
+  commands:
+    - pip check
+  requires:
+    - pip
 
 about:
   home: https://github.com/ebook-utils/css-parser
@@ -36,4 +37,7 @@ about:
   license_family: GPL
   summary: A CSS Cascading Style Sheets library for Python
   dev_url: https://github.com/ebook-utils/css-parser
-#  doc_url:
+
+extra:
+  recipe-maintainers:
+    - domdfcoding
